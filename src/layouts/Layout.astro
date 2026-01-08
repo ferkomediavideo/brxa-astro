@@ -1,0 +1,188 @@
+---
+interface Props {
+  title?: string;
+}
+
+const {
+  title = 'Brxa - Tradičné slovenské pastiarske výrobky',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Raleway:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="contact-bar">
+      <div class="container">
+        <a href="tel:+421907428602">☎️ 0907 428 602</a>
+        <a href="mailto:brxa@brxa.sk">✉️ brxa@brxa.sk</a>
+      </div>
+    </header>
+
+    <nav class="navbar">
+      <div class="container">
+        <a href="/" class="logo">Brxa</a>
+        <div class="nav-menu">
+          <a href="/">Domov</a>
+          <a href="/o-nas/">O nás</a>
+          <a href="/galeria/">Galéria</a>
+          <a href="/kontakt/">Kontakt</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <h3>O nás</h3>
+            <p>Tradičná ľudová remeselná výroba od roku 1993.</p>
+          </div>
+          <div>
+            <h3>Kontakt</h3>
+            <p>Martin Brxa<br />+421 907 428 602<br />brxa@brxa.sk</p>
+          </div>
+          <div>
+            <h3>Sociálne siete</h3>
+            <a href="https://www.facebook.com/brxamartin/">Facebook</a><br />
+            <a href="https://www.instagram.com/martinbrxa/">Instagram</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Brxa.sk - Všetky práva vyhradené</p>
+          <p>FerkoMedia video marketing</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .contact-bar {
+    background: linear-gradient(135deg, #5D4E37 0%, #4a3c2a 100%);
+    color: #D4A574;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .contact-bar a {
+    color: #D4A574;
+    text-decoration: none;
+    margin: 0 20px;
+  }
+
+  .navbar {
+    background: #EAE0D0;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #5D4E37;
+    text-decoration: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-menu a {
+    color: #5D4E37;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  main {
+    min-height: 60vh;
+  }
+
+  footer {
+    background: #5D4E37;
+    color: #EAE0D0;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .footer-content h3 {
+    color: #D4A574;
+    margin-bottom: 15px;
+  }
+
+  .footer-content a {
+    color: #D4A574;
+    text-decoration: none;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(212, 165, 116, 0.2);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+
+  .footer-bottom p {
+    margin: 5px 0;
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>
